@@ -1,18 +1,29 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="match-card">
+      <router-link> </router-link>
+    </div>
+
+    <form @submit.prevent="searchMatches" class="city-search-box">
+      <input type="text" placeholder="what city are you visiting" />
+      <button>Search</button>
+    </form>
   </div>
+
+  <div class="match-list">List of matches</div>
 </template>
 
-<script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+<script setup>
+import { ref } from "vue";
 
-export default {
-  name: 'HomeView',
-  components: {
-    HelloWorld
+const search = ref("");
+const matches = ref([]);
+
+const searchMatches = () => {
+  if (search.value != "") {
+    console.log(matches);
   }
-}
+};
 </script>
+
+<style lang="scss" scoped></style>
