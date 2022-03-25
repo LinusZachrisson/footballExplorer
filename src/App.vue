@@ -1,13 +1,12 @@
-<template>
-  <header>
-    <router-link to="/">
-      <h1>FootballExplorer</h1>
-    </router-link>
-  </header>
+<script setup>
+import LandingPage from "./components/LandingPage";
+</script>
 
-  <main>
-    <router-view />
-  </main>
+<template>
+  <div>
+    <h1>FootballExplorer</h1>
+    <LandingPage />
+  </div>
 </template>
 
 <style lang="scss"></style>
