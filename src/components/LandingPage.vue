@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import env from "../env";
+import DatePicker from "./DatePicker.vue";
 
 const myHeaders = new Headers();
 myHeaders.append("x-rapidapi-key", env.apiKey);
@@ -41,6 +42,7 @@ const searchMatches = () => {
         v-model="search"
       />
       <input type="submit" value="search" />
+      <DatePicker />
     </form>
   </div>
 
