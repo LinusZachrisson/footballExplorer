@@ -4,7 +4,6 @@ import LandingPage from "./components/LandingPage";
 
 <template>
   <div>
-    <h1>FootballExplorer</h1>
     <LandingPage />
   </div>
 </template>

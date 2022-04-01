@@ -25,7 +25,7 @@ const searchMatches = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        console.log(data.response);
       });
   }
 };
@@ -33,20 +33,35 @@ const searchMatches = () => {
 
 <template>
   <div class="home">
-    <div class="match-card"></div>
-
+    <h1>FootballExplorer</h1>
     <form @submit.prevent="searchMatches()" class="city-search-box">
       <input
         type="text"
         placeholder="what city are you visiting"
         v-model="search"
       />
-      <input type="submit" value="search" />
       <DatePicker />
+      <input type="submit" value="search" />
     </form>
-  </div>
 
-  <div class="match-list">List of matches</div>
+    <div class="match-list">
+      List of matches
+      <div class="match-card"></div>
+    </div>
+  </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.home {
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  h1 {
+    font-family: "Bebas Neue", cursive;
+    text-align: center;
+  }
+  form {
+    display: flex;
+    justify-content: center;
+  }
+}
+</style>
