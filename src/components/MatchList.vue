@@ -1,7 +1,13 @@
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+
+const match = ref();
+</script>
 
 <template>
-  <div></div>
+  <div class="match-cards">
+    <div></div>
+  </div>
 </template>
 
 <style scoped lang="scss"></style>
