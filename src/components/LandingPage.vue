@@ -14,7 +14,7 @@ const requestOptions = {
 };
 
 const search = ref("");
-//const matches = ref([]);
+const matches = ref([]);
 
 const searchMatches = () => {
   if (search.value != "") {
@@ -40,13 +40,15 @@ const searchMatches = () => {
         placeholder="what city are you visiting"
         v-model="search"
       />
-      <DatePicker />
+      <DatePicker v-model="search" />
       <input type="submit" value="search" />
     </form>
 
     <div class="match-list">
       List of matches
-      <div class="match-card"></div>
+      <div class="match-card">
+        {{ matches }}
+      </div>
     </div>
   </div>
 </template>

@@ -6,7 +6,11 @@ const match = ref();
 
 <template>
   <div class="match-cards">
-    <div></div>
+    <div>
+      <h1>City: {{ match.city }}</h1>
+      <div>Team: {{ match.team }}</div>
+      <div>Upcoming games: {{ match.game }}</div>
+    </div>
   </div>
 </template>
 
