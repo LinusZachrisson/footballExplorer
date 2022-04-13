@@ -26,6 +26,15 @@ const searchMatches = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data.response);
+
+        fetch(
+          `https://v3.football.api-sports.io/fixtures?team=${data.response[0].team.id}&next=10`,
+          requestOptions
+        )
+          .then((response) => response.json())
+          .then((newData) => {
+            console.log(newData);
+          });
       });
   }
 };
