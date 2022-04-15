@@ -11,6 +11,7 @@
     "@vuepic/vue-datepicker": "^3.0.0",
     "core-js": "^3.8.3",
     "dayjs": "^1.11.0",
+    "firebase": "^9.6.11",
     "litepie-datepicker": "^1.0.14",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3"
