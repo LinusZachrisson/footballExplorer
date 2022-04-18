@@ -1,7 +1,8 @@
 <script setup>
 import LandingPage from "./components/LandingPage";
 import { onBeforeMount } from "vue";
-import firebase from "firebase";
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
 import { useRouter, useRoute } from "vue-router";
 
 const router = useRouter();

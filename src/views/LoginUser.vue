@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
-import firebase from "firebase";
-
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
 const email = ref("");
 const password = ref("");
 

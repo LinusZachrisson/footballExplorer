@@ -1,17 +1,27 @@
-// import { createRouter, createWebHistory } from "vue-router";
-// import HomeView from "../views/HomeView.vue";
+import { createRouter, createWebHistory } from "vue-router";
+import HomeView from "../views/HomeView.vue";
 
-// const routes = [
-//   {
-//     path: "/",
-//     name: "home",
-//     component: HomeView,
-//   },
-// ];
+const routes = [
+  {
+    path: "/",
+    name: "home",
+    component: HomeView,
+  },
+  {
+    path: "/login",
+    name: "LoginUser",
+    component: () => import("../views/LoginUser.vue"),
+  },
+  {
+    path: "/register",
+    name: "RegisterUser",
+    component: () => import("../views/RegisterUser.vue"),
+  },
+];
 
-// const router = createRouter({
-//   history: createWebHistory(process.env.BASE_URL),
-//   routes,
-// });
+const router = createRouter({
+  history: createWebHistory(process.env.BASE_URL),
+  routes,
+});
 
-// export default router;
+export default router;
