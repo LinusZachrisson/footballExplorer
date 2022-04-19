@@ -55,8 +55,13 @@ const searchMatches = () => {
       <input type="submit" value="search" />
     </form>
 
-    <div class="match-list" v-for="games in matches" :key="games">
-      {{ games.fixture }}
+    <div class="match-container">
+      <div class="match-list" v-for="games in matches" :key="games">
+        <div class="match-card">
+          <h3>{{ games.teams.home.name }} - {{ games.teams.away.name }}</h3>
+          <p>Date: {{ games.fixture.date }}</p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -72,6 +77,19 @@ const searchMatches = () => {
   form {
     display: flex;
     justify-content: center;
+  }
+  .match-container {
+    display: flex;
+    .match-list {
+      border: 1px solid black;
+      width: 30rem;
+      height: 15rem;
+      padding: 20px;
+      margin: 10px;
+      .match-card {
+        justify-content: center;
+      }
+    }
   }
 }
 </style>
