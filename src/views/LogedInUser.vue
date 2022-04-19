@@ -16,9 +16,7 @@ const logoutUser = () => {
   firebase
     .auth()
     .signOut()
-    .then(() => {
-      console.log("Loged out");
-    })
+    .then(() => console.log("signed out"))
     .catch((error) => alert(error.message));
 };
 </script>
@@ -26,7 +24,7 @@ const logoutUser = () => {
 <template>
   <div class="logedInUserContainer">
     <h2>Welcome to you'r own footballExploration {{ name }}</h2>
-    <button class="logOutBtn" @onClick="logoutUser">Logout</button>
+    <button class="logOutBtn" @click="logoutUser">Logout</button>
   </div>
 </template>
 

@@ -1,11 +1,78 @@
 <script setup>
-import LandingPage from "../components/LandingPage.vue";
+import { ref } from "vue";
+import env from "../env";
+import DatePicker from "../components/DatePicker.vue";
+
+const myHeaders = new Headers();
+myHeaders.append("x-rapidapi-key", env.apiKey);
+myHeaders.append("x-rapidapi-host", "v3.football.api-sports.io");
+
+const requestOptions = {
+  method: "GET",
+  headers: myHeaders,
+  redirect: "follow",
+};
+
+const search = ref("");
+const matches = ref([]);
+
+const searchMatches = () => {
+  if (search.value != "") {
+    console.log(search.value);
+    fetch(
+      `https://v3.football.api-sports.io/teams?name=${search.value}`,
+      requestOptions
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data.response);
+
+        fetch(
+          `https://v3.football.api-sports.io/fixtures?team=${data.response[0].team.id}&next=10`,
+          requestOptions
+        )
+          .then((response) => response.json())
+          .then((newData) => {
+            console.log(newData);
+          });
+      });
+  }
+};
 </script>
 
 <template>
-  <div>
-    <LandingPage />
+  <div class="home">
+    <h1>FootballExplorer</h1>
+    <form @submit.prevent="searchMatches()" class="city-search-box">
+      <input
+        type="text"
+        placeholder="what city are you visiting"
+        v-model="search"
+      />
+      <DatePicker v-model="search" />
+      <input type="submit" value="search" />
+    </form>
+
+    <div class="match-list">
+      List of matches
+      <div class="match-card">
+        {{ matches }}
+      </div>
+    </div>
   </div>
 </template>
 
-<style></style>
+<style lang="scss" scoped>
+.home {
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  h1 {
+    font-family: "Bebas Neue", cursive;
+    text-align: center;
+  }
+  form {
+    display: flex;
+    justify-content: center;
+  }
+}
+</style>
