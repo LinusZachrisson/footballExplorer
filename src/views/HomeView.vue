@@ -34,6 +34,8 @@ const searchMatches = () => {
           .then((response) => response.json())
           .then((newData) => {
             console.log(newData);
+            matches.value = newData.response;
+            search.value = "";
           });
       });
   }
@@ -53,11 +55,8 @@ const searchMatches = () => {
       <input type="submit" value="search" />
     </form>
 
-    <div class="match-list">
-      List of matches
-      <div class="match-card">
-        {{ matches }}
-      </div>
+    <div class="match-list" v-for="games in matches" :key="games">
+      {{ games.fixture }}
     </div>
   </div>
 </template>
