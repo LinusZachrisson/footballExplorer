@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import Datepicker from "@vuepic/vue-datepicker";
-import "@vuepic/vue-datepicker/dist/main.css";
+import "@vuepic/vue-datepicker/src/VueDatePicker/style/main.scss";
 
 const date = ref(new Date().toISOString());
 
@@ -17,15 +17,10 @@ const setDate = (value) => {
     <Datepicker
       v-model="date"
       range
-      format="yyyy-mm-dd"
       noHoursOverlay
       @update:modelValue="setDate"
     />
   </div>
 </template>
 
-<style lang="scss" scoped>
-// .datepicker {
-//   width: 70px;
-// }
-</style>
+<style lang="scss" scoped></style>

@@ -28,7 +28,7 @@ const searchMatches = () => {
         console.log(data.response);
 
         fetch(
-          `https://v3.football.api-sports.io/fixtures?team=${data.response[0].team.id}&next=10`,
+          `https://v3.football.api-sports.io/fixtures?team=${data.response[0].team.id}&next=3`,
           requestOptions
         )
           .then((response) => response.json())
@@ -48,8 +48,9 @@ const searchMatches = () => {
     <form @submit.prevent="searchMatches()" class="city-search-box">
       <input
         type="text"
-        placeholder="what city are you visiting"
+        placeholder="what city are you visiting..."
         v-model="search"
+        class="city-search-input"
       />
       <DatePicker v-model="search" />
       <input type="submit" value="search" />
@@ -60,6 +61,8 @@ const searchMatches = () => {
         <div class="match-card">
           <h3>{{ games.teams.home.name }} - {{ games.teams.away.name }}</h3>
           <p>Date: {{ games.fixture.date }}</p>
+          <p>League: {{ games.league.name }}</p>
+          <p>Venue: {{ games.fixture.venue.name }}</p>
         </div>
       </div>
     </div>
@@ -73,21 +76,40 @@ const searchMatches = () => {
   h1 {
     font-family: "Bebas Neue", cursive;
     text-align: center;
+    margin-top: 50px;
   }
   form {
+    margin-top: 20px;
     display: flex;
     justify-content: center;
+    input {
+      border: 0;
+      padding: 10px 20px;
+      height: 50px;
+      background: white;
+      border-radius: 3px;
+      box-shadow: 0px 8px 15px rgba(#2d3436, 0.3);
+      transition: all 0.4s ease;
+    }
   }
   .match-container {
     display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    margin-left: 50px;
+    width: 70%;
     .match-list {
       border: 1px solid black;
       width: 30rem;
       height: 15rem;
-      padding: 20px;
       margin: 10px;
-      .match-card {
-        justify-content: center;
+      border-radius: 10px;
+      backdrop-filter: blur(20px);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+      padding: 50px 35px;
+      .match-card p {
+        margin-top: 10px;
       }
     }
   }

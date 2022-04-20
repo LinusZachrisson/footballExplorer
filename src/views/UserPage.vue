@@ -1,0 +1,38 @@
+<script setup>
+import { ref, onBeforeMount } from "vue";
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+
+const name = ref("");
+
+onBeforeMount(() => {
+  const user = firebase.auth().currentUser;
+  if (user) {
+    name.value = user.email.split("@")[0];
+  }
+});
+
+const logoutUser = () => {
+  firebase
+    .auth()
+    .signOut()
+    .then(() => console.log("signed out"))
+    .catch((error) => alert(error.message));
+};
+</script>
+
+<template>
+  <div class="logedin-user-container">
+    <div class="logedin-user-nav"></div>
+    <h2>Welcome to you'r own footballExploration {{ name }}</h2>
+    <button class="logOutBtn" @click="logoutUser">Logout</button>
+  </div>
+</template>
+
+<style lang="scss" scoped>
+.logedin-user-container {
+  font-family: "Roboto", sans-serif;
+  margin-left: 50px;
+  margin-top: 100px;
+}
+</style>
