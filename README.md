@@ -9,6 +9,12 @@ Either hit yarn install or npm install in your terminal and get your private API
 and enter this API-key in the env.js file in the project.
 And now you are ready to use footballExplorer.
 
+```
+$ npm install
+$ npm run serve
+
+```
+
 Test account to use when using the login functionality of the site:
 
 - e-mail: test123@test.com
