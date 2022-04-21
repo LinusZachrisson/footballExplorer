@@ -44,12 +44,9 @@ const searchStadiums = () => {
       .then((stadiumData) => {
         console.log(stadiumData);
         stadiums.value = stadiumData.response;
+        search.value = "";
       });
   }
-};
-
-const saveStadiums = () => {
-  console.log("sparad");
 };
 </script>
 
@@ -59,7 +56,7 @@ const saveStadiums = () => {
       <div class="logedin-user-nav">
         <router-link to="/savedstadiums">My page</router-link>
       </div>
-      <h2>Welcome to you'r own footballExploration {{ name }}</h2>
+      <h2>Welcome to your own footballExploration {{ name }}</h2>
       <button class="logout-btn" @click="logoutUser">Logout</button>
     </div>
 
@@ -79,7 +76,7 @@ const saveStadiums = () => {
     <div class="stadium-cards" v-for="stadium in stadiums" :key="stadium">
       <h2>Name: {{ stadium.name }}</h2>
       <p>Address: {{ stadium.address }}</p>
-      <button @click="saveStadiums">Save to your list</button>
+      <button @click="addStadiums">Save to your list</button>
     </div>
   </div>
 </template>
@@ -158,6 +155,31 @@ const saveStadiums = () => {
     border: 2px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
     padding: 50px 35px;
+    button {
+      background: #00b894;
+      border-radius: 999px;
+      box-shadow: #00b894 0 10px 20px -10px;
+      box-sizing: border-box;
+      color: #ffffff;
+      cursor: pointer;
+      font-family: Inter, Helvetica, "Apple Color Emoji", "Segoe UI Emoji",
+        NotoColorEmoji, "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji",
+        EmojiSymbols, -apple-system, system-ui, "Segoe UI", Roboto,
+        "Helvetica Neue", "Noto Sans", sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 24px;
+      opacity: 1;
+      outline: 0 solid transparent;
+      padding: 8px 18px;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      width: fit-content;
+      word-break: break-word;
+      border: 0;
+      margin-top: 20px;
+    }
   }
 }
 </style>

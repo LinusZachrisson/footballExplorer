@@ -72,12 +72,14 @@ const userLogin = () => {
     input[type="submit"] {
       margin-top: 50px;
       width: 100%;
-      background-color: #ffffff;
+      background-color: #00b894;
       color: #080710;
       padding: 15px 0;
       font-size: 18px;
       font-weight: 600;
       border-radius: 5px;
+      border: none;
+      margin-bottom: 10px;
       cursor: pointer;
     }
   }

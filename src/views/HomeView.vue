@@ -1,7 +1,9 @@
 <script setup>
 import { ref } from "vue";
 import env from "../env";
-import DatePicker from "../components/DatePicker.vue";
+import Datepicker from "@vuepic/vue-datepicker";
+import "@vuepic/vue-datepicker/src/VueDatePicker/style/main.scss";
+import moment from "moment";
 
 const myHeaders = new Headers();
 myHeaders.append("x-rapidapi-key", env.apiKey);
@@ -13,27 +15,32 @@ const requestOptions = {
   redirect: "follow",
 };
 
+const date = ref("");
 const search = ref("");
 const matches = ref([]);
 
+const setDate = (value) => {
+  date.value = value;
+};
+
 const searchMatches = () => {
   if (search.value != "") {
-    console.log(search.value);
     fetch(
       `https://v3.football.api-sports.io/teams?name=${search.value}`,
       requestOptions
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.response);
-
         fetch(
-          `https://v3.football.api-sports.io/fixtures?team=${data.response[0].team.id}&next=3`,
+          `https://v3.football.api-sports.io/fixtures?team=${
+            data.response[0].team.id
+          }&from=${moment(date.value[0]).format("YYYY-MM-DD")}&to=${moment(
+            date.value[1]
+          ).format("YYYY-MM-DD")}&season=2021`,
           requestOptions
         )
           .then((response) => response.json())
           .then((newData) => {
-            console.log(newData);
             matches.value = newData.response;
             search.value = "";
           });
@@ -52,7 +59,12 @@ const searchMatches = () => {
         v-model="search"
         class="city-search-input"
       />
-      <DatePicker v-model="search" />
+      <Datepicker
+        v-model="date"
+        range
+        noHoursOverlay
+        @update:modelValue="setDate"
+      />
       <input type="submit" value="search" />
     </form>
 
