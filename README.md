@@ -33,6 +33,11 @@ Libraries used in FootballExplorer are:
 - Vue-3-datepicker
 - moment
 
+### Testing
+
+- QA testing has been performed on certain views and functions throughout the site.
+- Flowtesting has been done during all stages of development.
+
 ### Compiles and minifies for production
 
 ```
