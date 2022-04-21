@@ -48,6 +48,11 @@ const searchStadiums = () => {
       });
   }
 };
+
+const addStadiums = () => {
+  //To be finished
+  console.log("WIP");
+};
 </script>
 
 <template>
