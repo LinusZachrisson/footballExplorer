@@ -28,10 +28,12 @@ Then to get development server up and runing just hit npm run serve in your term
 
 Libraries used in FootballExplorer are:
 
-- Firebase
-- VueRouter
-- Vue-3-datepicker
-- moment
+- Vue 3 setup script
+
+* Firebase
+* VueRouter
+* Vue-3-datepicker
+* moment
 
 ### Testing
 
