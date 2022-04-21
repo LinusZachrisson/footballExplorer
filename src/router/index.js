@@ -22,6 +22,11 @@ const routes = [
     name: "UserPage",
     component: () => import("../views/UserPage.vue"),
   },
+  {
+    path: "/savedstadiums",
+    name: "SavedStadiums",
+    component: () => import("../views/SavedStadiums.vue"),
+  },
 ];
 
 const router = createRouter({

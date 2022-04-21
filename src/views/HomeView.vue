@@ -73,6 +73,7 @@ const searchMatches = () => {
 .home {
   font-family: "Roboto", sans-serif;
   text-align: center;
+  margin: auto;
   h1 {
     font-family: "Bebas Neue", cursive;
     text-align: center;
@@ -95,9 +96,8 @@ const searchMatches = () => {
   .match-container {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 50px;
-    margin-left: 50px;
-    width: 70%;
+    margin-left: 20%;
+    margin-top: 30px;
     .match-list {
       border: 1px solid black;
       width: 30rem;
